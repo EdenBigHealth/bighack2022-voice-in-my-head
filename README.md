@@ -1,1 +1,5 @@
-This is a starter template for [Learn Next.js](https://nextjs.org/learn).
+This Project was created for the Big Hack of 2022.
+
+MVP of Voice and Avatar Switching.
+
+Built on NextJS
