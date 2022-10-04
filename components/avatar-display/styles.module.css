@@ -1,0 +1,68 @@
+.container {
+    display: flex;  
+    flex-wrap: wrap; 
+    justify-content: center;
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
+.avatarProfile {
+    margin: 10px;
+    border: 3px solid #fff;
+    border-radius: 40px;
+    padding: 10px;
+    text-align: center;
+    transition: all 0.1s linear;
+}
+.avatarProfile:hover {
+    cursor: pointer;
+    border-width: 8px;
+    margin: 5px
+}
+/* .chosenAvatar {
+    border-width: 8px;
+    margin: 5px
+} */
+
+@keyframes spin {
+    from {transform: translate(-50%, -50%) rotate(0);}
+    to   {transform: translate(-50%, -50%) rotate(360deg);}
+}
+.avatarImgBorder {
+    --border-bg: conic-gradient(#00a6db, #ff4751, #59e0a3);
+    position: relative;
+    border-radius: 50%;
+    display: inline-block;
+}
+.avatarImgBorder::before {
+    content: '';
+    display: block;
+    background: var(--border-bg);
+    width: calc(100% * 1.1);
+    padding-bottom: calc(100% * 1.1);
+    position: absolute;
+    left: 50%;
+    top: 49%;
+    transform: translate(-50%, -50%);
+    border-radius: 100%;
+    z-index: -2;
+    animation: spin 2s linear infinite;
+  }
+.avatarImgBorder::after{
+    content: '';
+    position: absolute;
+    inset: var(--border-size);
+    background: white;
+    z-index: -1;
+    border-radius: calc(var(--border-radius) - var(--border-size));
+}
+
+.avatarName {
+    text-transform: uppercase;
+}
+.avatarImage {
+
+}
+.avatarAudio {
+    
+}
+

@@ -1,15 +1,16 @@
-import {useEffect, useState} from 'react'
+import {useState} from 'react'
 import Head from 'next/head'
-import AvatarPicker from '../components/avatar-picker'
 import AvatarDisplay from '../components/avatar-display';
+import AvatarScript from '../components/avatar-script';
+import HeaderContent from '../components/header-content'
+import ChosenAvatar from '../components/chosen-avatar';
 
 export default function Home() {
   const [avatar, setAvatar] = useState(null);
 
-  // useEffect(() => {
-  //   console.log('updating avatar')
-  // }, [avatar])
-
+  function pickAvatar(avatar) {
+    setAvatar(avatar);
+  }
 
   return (
     <div className="container">
@@ -19,13 +20,13 @@ export default function Home() {
       </Head>
 
       <main>
-      <AvatarPicker 
-        pickAvatar={(avatar) => setAvatar(avatar)}
-      />
-      <AvatarDisplay avatar={avatar}/> 
+        <HeaderContent />
+        {avatar && <ChosenAvatar avatar={avatar}/>}
+        <AvatarDisplay setChosenAvatar={pickAvatar}/> 
+        <AvatarScript/>
       </main>
 
-      <footer>
+      {/* <footer>
         <a
           href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
           target="_blank"
@@ -34,7 +35,7 @@ export default function Home() {
           Powered by{' '}
           <img src="/vercel.svg" alt="Vercel" className="logo" />
         </a>
-      </footer>
+      </footer> */}
 
       <style jsx>{`
         .container {
